@@ -14,4 +14,4 @@ services:
             - /etc/shadow:/etc/shadow:ro
         tty: true
         #command: tail -f /dev/null
-        command: bash -c "cd code; autoreconf --install && ./configure"
+        command: bash -c "cd code; autoreconf --install && ./configure && make"
