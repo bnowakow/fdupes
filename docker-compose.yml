@@ -1,0 +1,17 @@
+version: '3'
+services:
+    fdupes-builder:
+        build:
+            context: .
+        image: fdupes-builder
+        user: $UID:$GID
+        working_dir: $HOME
+        stdin_open: true
+        volumes:
+            - .:$HOME/code
+            - /etc/group:/etc/group:ro
+            - /etc/passwd:/etc/passwd:ro
+            - /etc/shadow:/etc/shadow:ro
+        tty: true
+        #command: tail -f /dev/null
+        command: bash -c "cd code; autoreconf --install"
